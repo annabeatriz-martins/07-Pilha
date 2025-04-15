@@ -5,6 +5,7 @@ using namespace std;
 struct NO {
 	int valor;
 	NO* prox;
+	NO* ant;
 };
 
 NO* topo = NULL;
@@ -85,15 +86,35 @@ void push()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
-	novo->prox = NULL;
 
-
+	if (topo == NULL) 
+	{
+		topo = novo;
+	}
+	else
+	{
+		novo->prox = topo;
+		topo = novo;
+	}
 }
 
 void pop()
 {
-
 	
+	if(topo == NULL)
+	{
+		cout << "Pilha vazia" << endl;
+		return;
+	}
+	else 
+	{
+		NO* aux = topo;
+
+		cout << topo->valor << endl;
+		topo = aux->ant;
+		free(aux);
+		cout << "Elemento excluido" << endl;
+	}
 
 }
 
