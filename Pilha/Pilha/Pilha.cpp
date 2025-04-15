@@ -111,7 +111,7 @@ void pop()
 		NO* aux = topo;
 
 		cout << topo->valor << endl;
-		topo = aux->ant;
+		topo = aux->prox;
 		free(aux);
 		cout << "Elemento excluido" << endl;
 	}
